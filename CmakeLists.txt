@@ -1,0 +1,21 @@
+cmake_minimum_required (VERSION 2.6)
+
+project (math)
+set (math_VERSION_MAJOR 0)
+set (math_VERSION_MINOR 1)
+
+include_directories (include)
+
+if (UNIX)
+	set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
+endif ()
+if (APPLE)
+	set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+endif ()
+
+add_executable (math_sample sample/math/math_sample.cc)
+
+install (DIRECTORY include/
+	DESTINATION include
+	FILES_MATCHING PATTERN "*.h"
+	)
