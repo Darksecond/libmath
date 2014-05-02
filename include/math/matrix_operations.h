@@ -66,4 +66,17 @@ namespace math
                 result[m] += b[n][m] * a[n];
         return result;
     }
+
+    /**
+     * Transpose a matrix.
+     */
+    template<typename T, int N, int M>
+    matrix<T, M, N> transpose(const matrix<T, N, M>& a)
+    {
+        matrix<T, M, N> result;
+        for(int n=0;n<N;++n)
+            for(int m=0;m<M;++m)
+                result[m][n] = a[n][m];
+        return result;
+    }
 }

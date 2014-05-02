@@ -3,6 +3,11 @@
 
 int main()
 {
+    //math::mat3x2 a(1,2,3,4,5,6);
+    //math::mat2x3 b = transpose(a);
+    //printf("[%f, %f, %f]\n", b[0][0], b[0][1], b[0][2]);
+    //printf("[%f, %f, %f]\n", b[1][0], b[1][1], b[1][2]);
+
     //math::mat2x2 c(1,2,3,4);
     //printf("[%f, %f]\n", c[0][0], c[0][1]);
     //printf("[%f, %f]\n", c[1][0], c[1][1]);

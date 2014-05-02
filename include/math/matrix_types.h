@@ -1,5 +1,6 @@
 #pragma once
 
+#include <type_traits>
 #include <math/vector_types.h>
 
 namespace math
@@ -35,6 +36,7 @@ namespace math
          * Create a matrix from a smaller one and a vector.
          * I.e. this will create a 3x3 matrix from a 2x3 matrix and a 3-vector.
          */
+        template<int R = Rows, typename std::enable_if<(R > 1)>::type >
         matrix<T, Rows, Cols>(const matrix<T, Rows-1, Cols>& a, const vector<T, Cols>& b)
         {
             for(int r=0;r<Rows-1;++r)
@@ -48,6 +50,7 @@ namespace math
          * Create a matrix from a smaller one and a vector.
          * I.e. this will create a 3x3 matrix from a 3x2 matrix and a 3-vector.
          */
+        template<int C = Cols, typename std::enable_if<(C > 1)>::type >
         matrix<T, Rows, Cols>(const matrix<T, Rows, Cols-1>& a, const vector<T, Rows>& b)
         {
             for(int r=0;r<Rows;++r)
