@@ -27,6 +27,13 @@ namespace math
             }
         }
 
+        //TODO safer static_cast (don't allow int->uint for example)
+        template<typename... Args>
+        vector<T, N>(Args... args) : data{static_cast<T>(args)...}
+        {
+            static_assert(sizeof...(args) == N, "Number of parameters must be N");
+        }
+
         T& operator[](const int pos) { return data[pos]; }
         constexpr T operator[](const int pos) const { return data[pos]; }
     };

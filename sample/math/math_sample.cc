@@ -3,6 +3,22 @@
 
 int main()
 {
+    //math::mat2x2 c(1,2,3,4);
+    //printf("[%f, %f]\n", c[0][0], c[0][1]);
+    //printf("[%f, %f]\n", c[1][0], c[1][1]);
+
+    //math::mat2x3 a;
+    //math::vec3 b;
+    //math::mat3x3 c(a, b);
+
+    //math::mat3x2 d;
+    //math::vec3 e;
+    //math::mat3x3 f(d, e);
+
+    //math::mat2x2 c;
+    //printf("[%f, %f]\n", c[0][0], c[0][1]);
+    //printf("[%f, %f]\n", c[1][0], c[1][1]);
+
     //math::mat2x2 c = math::mat2x2::identity();
     //printf("[%f, %f]\n", c[0][0], c[0][1]);
     //printf("[%f, %f]\n", c[1][0], c[1][1]);

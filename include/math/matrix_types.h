@@ -15,7 +15,58 @@ namespace math
         typedef T type;
         typedef vector<T, Cols> row;
         //TODO typedef vector<T, Rows> column; (unused right now)
-        row data[Rows];
+        union
+        {
+            T raw[Rows*Cols];
+            row data[Rows];
+        };
+
+        /**
+         * Construct a fully zeroed out matrix.
+         * This will _not_ create an identity matrix.
+         */
+        matrix<T, Rows, Cols>()
+        {
+            for(int i=0;i<Rows*Cols;++i)
+                raw[i] = 0;
+        }
+
+        /**
+         * Create a matrix from a smaller one and a vector.
+         * I.e. this will create a 3x3 matrix from a 2x3 matrix and a 3-vector.
+         */
+        matrix<T, Rows, Cols>(const matrix<T, Rows-1, Cols>& a, const vector<T, Cols>& b)
+        {
+            for(int r=0;r<Rows-1;++r)
+                for(int c=0;c<Cols;++c)
+                    data[r][c] = a[r][c];
+            for(int c=0;c<Cols;++c)
+                data[Rows-1][c] = b[c];
+        }
+
+        /**
+         * Create a matrix from a smaller one and a vector.
+         * I.e. this will create a 3x3 matrix from a 3x2 matrix and a 3-vector.
+         */
+        matrix<T, Rows, Cols>(const matrix<T, Rows, Cols-1>& a, const vector<T, Rows>& b)
+        {
+            for(int r=0;r<Rows;++r)
+                for(int c=0;c<Cols-1;++c)
+                    data[r][c] = a[r][c];
+            for(int r=0;r<Rows;++r)
+                data[r][Cols-1] = b[r];
+        }
+
+        /**
+         * construct a matrix with Rows*Cols values of type T (or castable to).
+         * the matrix is constructed in the following order: left-to-right, top-to-bottom.
+         * TODO safer static_cast (don't allow int->uint for example)
+         */
+        template<typename... Args>
+        matrix<T, Rows, Cols>(Args... args) : raw{static_cast<T>(args)...}
+        {
+            static_assert(sizeof...(args) == Rows*Cols, "Number of parameters must be N");
+        }
 
         row& operator[](const int pos) { return data[pos]; }
         constexpr row operator[](const int pos) const { return data[pos]; }
