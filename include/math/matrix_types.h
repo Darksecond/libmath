@@ -1,5 +1,7 @@
 #pragma once
 
+#include <math/vector_types.h>
+
 namespace math
 {
     template<typename T, int Rows, int Cols>

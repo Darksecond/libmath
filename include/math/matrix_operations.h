@@ -40,4 +40,30 @@ namespace math
     {
         return a * b;
     }
+
+    /**
+     * Matrix-Column vector multiplication
+     */
+    template<typename T, int N, int M>
+    vector<T, N> operator*(const matrix<T, N, M>& a, const vector<T, M>& b)
+    {
+        vector<T, N> result;
+        for(int n=0;n<N;++n)
+            for(int m=0;m<M;++m)
+                result[n] += a[n][m] * b[m];
+        return result;
+    }
+
+    /**
+     * row vector-matrix multiplication
+     */
+    template<typename T, int N, int M>
+    vector<T,M> operator*(const vector<T, N>& a, const matrix<T, N, M>& b)
+    {
+        vector<T, M> result;
+        for(int n=0;n<N;++n)
+            for(int m=0;m<M;++m)
+                result[m] += b[n][m] * a[n];
+        return result;
+    }
 }
