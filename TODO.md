@@ -10,3 +10,5 @@ TODO
 * >, <, ==, !=, >=, <= using binary-vectors
 * all/any for binary vectors
 * pi/half_pi
+* matrix inverse
+* matrix transpose
