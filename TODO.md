@@ -15,3 +15,4 @@ TODO
 * matrix inverse
 * look_at
 * projection
+* print/to_string for matrix/vector/quaternion
