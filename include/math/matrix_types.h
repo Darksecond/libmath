@@ -5,6 +5,15 @@
 
 namespace math
 {
+    /**
+     * This is the layout of a matrix.
+     *     M
+     *   1 2 3
+     * N 4 5 6
+     *   7 8 9
+     * N == Rows
+     * M == Cols
+    */
     template<typename T, int Rows, int Cols>
     struct matrix
     {
