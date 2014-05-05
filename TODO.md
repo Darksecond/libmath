@@ -15,3 +15,4 @@ TODO
 * look_at
 * projection
 * print/to_string for matrix/vector/quaternion
+* simd 4x4 matrix inverse
