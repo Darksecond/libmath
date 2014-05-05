@@ -109,6 +109,17 @@ namespace math
         return a;
     }
 
+    template<typename T, int N, typename Y>
+    vector<T, N> operator/=(vector<T, N>& a, const Y& b)
+    {
+        const T value(b);
+        for(int i=0;i<N;++i)
+        {
+            a.data[i] /= value;
+        }
+        return a;
+    }
+
     /**
      * Sum all elements in vector a together.
      */
