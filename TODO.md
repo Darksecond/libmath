@@ -12,7 +12,6 @@ TODO
 * ==, != for matrices
 * all/any for binary vectors
 * pi/half_pi
-* matrix inverse
 * look_at
 * projection
 * print/to_string for matrix/vector/quaternion
