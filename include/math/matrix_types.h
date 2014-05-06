@@ -23,12 +23,12 @@ namespace math
         static constexpr int rows = Rows;
         static constexpr int cols = Cols;
         typedef T type;
-        typedef vector<T, Cols> row;
-        //TODO typedef vector<T, Rows> column; (unused right now)
+        typedef vector<T, Cols> row_t; //one row, so a vector Cols long
+        typedef vector<T, Rows> column_t; //one column, so a vector Rows long
         union
         {
             T raw[Rows*Cols];
-            row data[Rows];
+            row_t data[Rows];
         };
 
         /**
@@ -80,8 +80,11 @@ namespace math
             static_assert(sizeof...(args) == Rows*Cols, "Number of parameters must be N");
         }
 
-        row& operator[](const int pos) { return data[pos]; }
-        constexpr row operator[](const int pos) const { return data[pos]; }
+	/**
+	 * Get row pos.
+	 */
+        row_t& operator[](const int pos) { return data[pos]; }
+        constexpr row_t operator[](const int pos) const { return data[pos]; }
 
         /**
          * Create an identity matrix.

@@ -1,10 +1,14 @@
 #pragma once
 
+#include <math/constants.h>
+#include <math/angles.h>
+
 #include <math/vector_types.h>
 #include <math/vector_operations.h>
 
 #include <math/matrix_types.h>
 #include <math/matrix_operations.h>
+#include <math/matrix_functions.h>
 
 namespace math
 {

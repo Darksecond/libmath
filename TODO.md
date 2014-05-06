@@ -13,6 +13,7 @@ TODO
 * all/any for binary vectors
 * pi/half_pi
 * look_at
-* projection
 * print/to_string for matrix/vector/quaternion
 * simd 4x4 matrix inverse
+* ortho projection
+* infinite perspective projection?

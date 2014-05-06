@@ -1,8 +1,14 @@
 #include <cstdio>
+#include <cassert>
 #include <math/math.h>
 
 int main()
 {
+    math::mat4x4 projection = math::perspective(math::to_radians(75.0f), 4.0f/3.0f, 0.01f, 100.0f);
+    math::vec4 a(1,2,3,4);
+    math::vec4 b = projection * a;
+    printf("[%f, %f, %f, %f]\n", b.x, b.y, b.z, b.w);
+
     //math::mat3x2 a(1,2,3,4,5,6);
     //math::mat2x3 b = transpose(a);
     //printf("[%f, %f, %f]\n", b[0][0], b[0][1], b[0][2]);
